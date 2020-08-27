@@ -73,7 +73,7 @@
       },
     },
     computed: {
-      sortFunc: function () {
+      sortFunc: function() {
         let filtered = this.car;
         if (this.search) {
           filtered = this.car.filter(
@@ -88,7 +88,7 @@
           let filtered = this.car.filter((cars) => {
             return cars.year >= 2000 && cars.year <= 2007;
           });
-          return filtered.slice().sort(function (a, b) {
+          return filtered.slice().sort(function(a, b) {
             return a.year > b.year ? 1 : -1;
           });
         }
