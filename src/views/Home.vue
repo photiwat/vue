@@ -34,7 +34,7 @@
 
             <b-img src="@/assets/img.jpg" fluid alt="Fluid image"></b-img>
 
-            <p style="text-align:right">Owner : {{ cars.owner }}</p>
+            <p style="text-align: right">Owner : {{ cars.owner }}</p>
           </b-card-text>
         </b-card>
       </b-col>
@@ -67,12 +67,13 @@
         });
     },
     methods: {
-      deletecar() {
-        console.log('delete')
+      deletecar(key) {
+        this.$delete(this.sortFunc, key);
+        this.$forceUpdate();
       },
     },
     computed: {
-      sortFunc: function() {
+      sortFunc: function () {
         let filtered = this.car;
         if (this.search) {
           filtered = this.car.filter(
@@ -87,7 +88,7 @@
           let filtered = this.car.filter((cars) => {
             return cars.year >= 2000 && cars.year <= 2007;
           });
-          return filtered.slice().sort(function(a, b) {
+          return filtered.slice().sort(function (a, b) {
             return a.year > b.year ? 1 : -1;
           });
         }
